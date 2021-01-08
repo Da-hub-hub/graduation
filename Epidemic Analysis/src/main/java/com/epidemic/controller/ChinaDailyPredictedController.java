@@ -21,7 +21,7 @@ public class ChinaDailyPredictedController {
         chinaDailyPredictedService.chinaDailyPredicted(a1,Sn,n);
         return new Result().setCode(ResultCode.SUCCESS.code()).setMessage("预测成功").setData(null);
     }
-    //预测数据
+    //预测数据,哈哈
     @GetMapping("/chinaDailyPredicted")
     public Result ChinaDailyPredicted(){
         List<China_daily> china_dailies = chinaDailyPredictedService.allChinaDailyPredicted();

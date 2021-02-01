@@ -4,7 +4,7 @@ class DbUtils:
     __conn=''
     __cursor=''
 #初始化数据库连接参数
-    def __init__(self,host="localhost",port=3306,user="root",password="Qcy123456",database="chuyin"):
+    def __init__(self,host="localhost",port=3306,user="root",password="Qcy123456",database="graduation"):
         self.host=host
         self.port=port
         self.user=user

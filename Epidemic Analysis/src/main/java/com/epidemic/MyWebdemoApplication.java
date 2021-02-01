@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @MapperScan("com.epidemic.dao")
 @SpringBootApplication
+//测试
 public class MyWebdemoApplication {
     public static void main(String[] args) {
         SpringApplication.run(MyWebdemoApplication.class,args);

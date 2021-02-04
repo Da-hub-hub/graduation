@@ -13,13 +13,14 @@ public class Predicted implements Serializable {
     private static final long serialVersionUID = 1L;
     static double molecular=0;
     static double  denominator=0;
+    static China_daily[] china_dailies;
     //每一个样本值处理结束后，分子，分母置0
     public static void To0(){
         molecular=0;
         denominator=0;
     }
 
-     /*
+    /*
      *
      *加权移动平均法:
      *Yi——第i期实际值
@@ -27,6 +28,7 @@ public class Predicted implements Serializable {
      *n——本期数
      * */
     public static China_daily WeightedMovingAverage1(double a1,int Sn,int n) {
+
         China_daily china_daily = new China_daily();
         double result=0;
 
@@ -40,54 +42,14 @@ public class Predicted implements Serializable {
         int[] todayStoreConfirm = DataBreakUp.getTodayStoreConfirm(n);
         int[] todayInput = DataBreakUp.getTodayInput(n);
 
-        //获取权值
-        Double[] weight = Arithmetic.getWeight(a1, Sn, n);
+        int confirm = Predict.getPredict(a1, Sn, n, todayConfirm);
+        int suspect = Predict.getPredict(a1, Sn, n, todaySuspect);
+        int input = Predict.getPredict(a1, Sn, n, todayHeal);
+        int heal = Predict.getPredict(a1, Sn, n, todayDead);
+        int dead = Predict.getPredict(a1, Sn, n, todaySevere);
+        int severe = Predict.getPredict(a1, Sn, n, todayStoreConfirm);
+        int storeConfirm = Predict.getPredict(a1, Sn, n, todayInput);
 
-        //第一天预测数据
-        for (int i=0;i<n;i++){
-            molecular=weight[i]*todayConfirm[i]+molecular;
-            denominator=weight[i]+denominator;
-        }
-        int confirm= (int) (molecular/denominator);
-        To0();
-        for (int i=0;i<n;i++){
-            molecular=weight[i]*todaySuspect[i]+molecular;
-            denominator=weight[i]+denominator;
-        }
-        int suspect= (int) (molecular/denominator);
-        To0();
-        for (int i=0;i<n;i++){
-            molecular=weight[i]*todayHeal[i]+molecular;
-            denominator=weight[i]+denominator;
-        }
-        int heal= (int) (molecular/denominator);
-        To0();
-
-        for (int i=0;i<n;i++){
-            molecular=weight[i]*todayDead[i]+molecular;
-            denominator=weight[i]+denominator;
-        }
-        int dead= (int) (molecular/denominator);
-        To0();
-        for (int i=0;i<n;i++){
-            molecular=weight[i]*todaySevere[i]+molecular;
-            denominator=weight[i]+denominator;
-        }
-        int severe= (int) (molecular/denominator);
-        To0();
-        for (int i=0;i<n;i++){
-            molecular=weight[i]*todayStoreConfirm[i]+molecular;
-            denominator=weight[i]+denominator;
-        }
-        int storeConfirm= (int) (molecular/denominator);
-        To0();
-
-        for (int i=0;i<n;i++){
-            molecular=weight[i]*todayInput[i]+molecular;
-            denominator=weight[i]+denominator;
-        }
-        int input= (int) (molecular/denominator);
-        To0();
         Date date=todayDate[n-1];
         china_daily.setDate(DateUtil.dateCreateOne(date));
         china_daily.setToday_confirm(confirm);

@@ -41,7 +41,9 @@ public class Predicted implements Serializable {
         int[] todaySevere = DataBreakUp.getTodaySevere(n);
         int[] todayStoreConfirm = DataBreakUp.getTodayStoreConfirm(n);
         int[] todayInput = DataBreakUp.getTodayInput(n);
-
+        /*
+            根据传入的样本数组获取预测值
+        * */
         int confirm = Predict.getPredict(a1, Sn, n, todayConfirm);
         int suspect = Predict.getPredict(a1, Sn, n, todaySuspect);
         int input = Predict.getPredict(a1, Sn, n, todayHeal);

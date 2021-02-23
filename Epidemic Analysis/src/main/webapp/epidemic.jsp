@@ -108,15 +108,15 @@
             $.each(epidemics, function (index, epidemic) {
                 var tr = $("<tr>");
                 var td = $("<td>");
-                td.text(epidemic.provinceName);
+                td.text(epidemic.province);
                 tr.append(td);
                 td = $("<td>");
-                td.html("" + epidemic.affirmedTotal);
-                acc_affirmed+=epidemic.affirmedTotal;
+                td.html("" + epidemic.total_confirm);
+                acc_affirmed+=epidemic.total_confirm;
                 tr.append(td);
 
                 td = $("<td>");
-                td.html("" + epidemic.suspectedTotal);
+                td.html("" + epidemic.total_suspect);
                 tr.append(td);
 
 
@@ -130,8 +130,8 @@
                 tr.append(td);
 
                 td = $("<td>");
-                td.html("" + epidemic.deadTotal);
-                acc_dead+=epidemic.deadTotal;
+                td.html("" + epidemic.total_dead);
+                acc_dead+=epidemic.total_dead;
                 tr.append(td);
 
                 tbody1.append(tr);
@@ -292,24 +292,24 @@
             var provinceNames = [];
             var affirmedTotal = [];
             $.each(epidemics, function (index, epidemic) {
-                provinceNames.push(epidemic.provinceName);
-                affirmedTotal.push(epidemic.affirmedTotal);
+                provinceNames.push(epidemic.province);
+                affirmedTotal.push(epidemic.total_confirm);
             });
             myCharts.setOption({
                 xAxis: {
-                    data: provinceNames
+                    data: provinces
                 },
                 series: [{
-                    data: affirmedTotal
+                    data: total_confirm
                 }]
             });
 
             myCharts2.setOption({
                 xAxis: {
-                    data: provinceNames
+                    data: provinces
                 },
                 series: [{
-                    data: affirmedTotal
+                    data: total_confirm
                 }]
             });
 
@@ -365,8 +365,8 @@
             var data = [];
             $.each(epidemics, function (index, epidemic) {
                 var obj = {};
-                obj.name = epidemic.provinceName;
-                obj.value = epidemic.affirmedTotal;
+                obj.name = epidemic.province;
+                obj.value = epidemic.total_confirm;
                 data.push(obj);
             });
             myMap.setOption({
@@ -381,7 +381,7 @@
             });
         };
         //发送请求获取最新疫情数据
-        $.get("${pageContext.request.contextPath}/epidemicData/ajax/lastestData", {}, function (resp) {
+        $.get("${pageContext.request.contextPath}/province/all", {}, function (resp) {
             if (resp.code < 0) {
                 alert(resp.msg);
             } else {

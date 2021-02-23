@@ -11,7 +11,7 @@ public class Predict {
         molecular=0;
         denominator=0;
     }
-    //获取权值
+    //获取权值（a1:第一个样本的权值   Sn：权值总和   n：样本数量）
     public static Double[] getWeight(double a1,int Sn,int n){
         return Arithmetic.getWeight(a1, Sn, n);
     }

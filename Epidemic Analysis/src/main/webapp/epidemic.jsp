@@ -289,15 +289,15 @@
         //将服务器端返回的数据设置到图表上
 
         var fillToChart = function (epidemics) {
-            var provinceNames = [];
-            var affirmedTotal = [];
+            var province = [];
+            var total_confirm = [];
             $.each(epidemics, function (index, epidemic) {
-                provinceNames.push(epidemic.province);
-                affirmedTotal.push(epidemic.total_confirm);
+                province.push(epidemic.province);
+                total_confirm.push(epidemic.total_confirm);
             });
             myCharts.setOption({
                 xAxis: {
-                    data: provinces
+                    data: province
                 },
                 series: [{
                     data: total_confirm
@@ -306,7 +306,7 @@
 
             myCharts2.setOption({
                 xAxis: {
-                    data: provinces
+                    data: province
                 },
                 series: [{
                     data: total_confirm

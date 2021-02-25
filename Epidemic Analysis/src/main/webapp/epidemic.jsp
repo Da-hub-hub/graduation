@@ -70,6 +70,10 @@
             </table>
         </div>
     </div>
+
+
+
+
     <div class="row" style="margin-top: 5px;">
         <div class="col-md-12">
             <div id="mycharts" style="height: 500px;border: 1px solid gray;background-color:#fff;"></div>
@@ -125,8 +129,8 @@
                 tr.append(td);
 
                 td = $("<td>");
-                td.html("" + epidemic.curedTotal);
-                acc_cured+=epidemic.curedTotal;
+                td.html("" + epidemic.total_heal);
+                acc_cured+=epidemic.total_heal;
                 tr.append(td);
 
                 td = $("<td>");
@@ -329,9 +333,13 @@
                 visualMap: {
                     type: 'piecewise',
                     min: 0,
-                    max: 10000,
+                    max: 100000,
                     splitList:
                         [{
+                            start: 10000,
+                            end: 100000
+                        },
+                            {
                             start: 1000,
                             end: 10000
                         }, {

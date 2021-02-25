@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.websocket.server.ServerEndpoint;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +19,38 @@ import java.util.List;
 public class ChinaDailyController {
     @Autowired
     private ChinaDailyService chinaDailyService;
+    //获取中国今日疫情数据
+    @RequestMapping("/today")
+    public Result findYesterday(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String format = dateFormat.format(new Date());
+        Date date=null;
+        try {
+             date = dateFormat.parse(format);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        China_daily byDate = chinaDailyService.findByDate(date);
+        return new Result().setCode(ResultCode.SUCCESS.code()).setMessage("数据请求成功！").setData(byDate);
+    }
+    //获取中国昨日疫情数据
+    @RequestMapping("/yesterday")
+    public Result findToday(){
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE,-1);
+        Date d = cal.getTime();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String format = simpleDateFormat.format(d);
+        Date date=null;
+        try {
+            date = simpleDateFormat.parse(format);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        China_daily byDate = chinaDailyService.findByDate(date);
+        return new Result().setCode(ResultCode.SUCCESS.code()).setMessage("数据请求成功！").setData(byDate);
+    }
+
     //获取全部中国每日数据
     @GetMapping("/all")
     public Result findAll(){

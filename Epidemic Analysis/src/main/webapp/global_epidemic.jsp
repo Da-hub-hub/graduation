@@ -22,7 +22,7 @@
 <noscript>
     <strong>We're sorry but infection-statistic doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
 </noscript>
-<div id="app"><h1>疫情分析系统</h1><div id="wrapper"><div class="table"><div style="text-align: left; color: rgb(136, 136, 136);">数据已更新</div><div class="row"><a href="../../global_epidemic.jsp">全球疫情数据</a></div><div class="el-row" style="margin-left: -12px; margin-right: -12px;"><div class="row"><a href="../../epidemic.jsp">中国疫情数据</a></div><div class="el-col el-col-8" style="padding-left: 12px; padding-right: 12px;"><div class="el-card is-always-shadow"><!----><div class="el-card__body"><span class="content-title">昨日确诊</span> <br><div style="margin-top: 5px;"></div><span id="now_affirmed" class="content-number" style="color: rgb(255, 102, 51);">0</span> <br><span class="content-yesterday">前日 <span id="lastday_affirmed" style="color: rgb(255, 102, 51);"><span>+</span>0</span></span></div></div></div><div class="el-col el-col-8" style="padding-left: 12px; padding-right: 12px;"><div class="el-card is-always-shadow"><!----><div class="el-card__body"><span class="content-title">昨日疑似</span> <br><div style="margin-top: 5px;"></div><span id="now_suspected" class="content-number" style="color: rgb(255, 204, 0);">0</span> <br><span class="content-yesterday">前日 <span id="lastday_suspected" style="color: rgb(255, 204, 0);"><span>+</span>0</span></span></div></div></div><div class="el-col el-col-8" style="padding-left: 12px; padding-right: 12px;"><div class="el-card is-always-shadow"><!----><div class="el-card__body"><span class="content-title">昨日死亡</span> <br><div style="margin-top: 5px;"></div><span id="now_dead" class="content-number" style="color: rgb(0, 102, 153);">0</span> <br><span class="content-yesterday">前日 <span id="lastday_dead" style="color: rgb(0, 102, 153);"><span>+</span>0</span></span></div></div></div></div><div class="el-row" style="margin-left: -12px; margin-right: -12px; margin-top: 5px;"><div class="el-col el-col-8" style="padding-left: 12px; padding-right: 12px;"><div class="el-card is-always-shadow"><!----><div class="el-card__body"><span class="content-title">累计确诊</span> <br><div style="margin-top: 5px;"></div><span id="acc_affirmed" class="content-number" style="color: rgb(255, 0, 0);">0</span> <br></div></div></div><div class="el-col el-col-8" style="padding-left: 12px; padding-right: 12px;"><div class="el-card is-always-shadow"><!----><div class="el-card__body"><span class="content-title">累计治愈</span> <br><div style="margin-top: 5px;"></div><span id="acc_cured" class="content-number" style="color: rgb(103, 194, 58);">0</span> <br></div></div></div><div class="el-col el-col-8" style="padding-left: 12px; padding-right: 12px;"><div class="el-card is-always-shadow"><!----><div class="el-card__body"><span class="content-title">累计死亡</span> <br><div style="margin-top: 5px;"></div><span id="acc_dead" class="content-number" style="color: rgb(0, 0, 0);">0</span> <br></div></div></div></div></div></div></div>
+<div id="app"><h1>疫情分析系统</h1><div id="wrapper"><div class="table"><div style="text-align: left; color: rgb(136, 136, 136);">数据已更新</div><div class="row"><a href="../../global_epidemic.jsp">全球疫情数据</a></div><div class="el-row" style="margin-left: -12px; margin-right: -12px;"><div class="row"><a href="../../epidemic.jsp">中国疫情数据</a></div><div class="el-col el-col-8" style="padding-left: 12px; padding-right: 12px;"><div class="el-card is-always-shadow"><!----><div class="el-card__body"><span class="content-title">现有确诊</span> <br><div style="margin-top: 5px;"></div><span id="now_affirmed" class="content-number" style="color: rgb(255, 102, 51);">0</span> <br><span class="content-yesterday">昨日 <span id="lastday_affirmed" style="color: rgb(255, 102, 51);"><span>+</span>0</span></span></div></div></div><div class="el-col el-col-8" style="padding-left: 12px; padding-right: 12px;"><div class="el-card is-always-shadow"><!----><div class="el-card__body"><span class="content-title">现有疑似</span> <br><div style="margin-top: 5px;"></div><span id="now_suspected" class="content-number" style="color: rgb(255, 204, 0);">0</span> <br><span class="content-yesterday">昨日 <span id="lastday_suspected" style="color: rgb(255, 204, 0);"><span>+</span>0</span></span></div></div></div><div class="el-col el-col-8" style="padding-left: 12px; padding-right: 12px;"><div class="el-card is-always-shadow"><!----><div class="el-card__body"><span class="content-title">现有隔离</span> <br><div style="margin-top: 5px;"></div><span id="now_isolated" class="content-number" style="color: rgb(0, 102, 153);">0</span> <br><span class="content-yesterday">昨日 <span id="lastday_isolated" style="color: rgb(0, 102, 153);"><span>+</span>0</span></span></div></div></div></div><div class="el-row" style="margin-left: -12px; margin-right: -12px; margin-top: 5px;"><div class="el-col el-col-8" style="padding-left: 12px; padding-right: 12px;"><div class="el-card is-always-shadow"><!----><div class="el-card__body"><span class="content-title">累计确诊</span> <br><div style="margin-top: 5px;"></div><span id="acc_affirmed" class="content-number" style="color: rgb(255, 0, 0);">0</span> <br></div></div></div><div class="el-col el-col-8" style="padding-left: 12px; padding-right: 12px;"><div class="el-card is-always-shadow"><!----><div class="el-card__body"><span class="content-title">累计治愈</span> <br><div style="margin-top: 5px;"></div><span id="acc_cured" class="content-number" style="color: rgb(103, 194, 58);">0</span> <br></div></div></div><div class="el-col el-col-8" style="padding-left: 12px; padding-right: 12px;"><div class="el-card is-always-shadow"><!----><div class="el-card__body"><span class="content-title">累计死亡</span> <br><div style="margin-top: 5px;"></div><span id="acc_dead" class="content-number" style="color: rgb(0, 0, 0);">0</span> <br></div></div></div></div></div></div></div>
 
 
 
@@ -41,6 +41,7 @@
                     <th>省份</th>
                     <th>确诊人数</th>
                     <th>疑似人数</th>
+                    <th>隔离人数</th>
                     <th>治愈人数</th>
                     <th>死亡人数</th>
                 </tr>
@@ -51,9 +52,7 @@
                 <tr>
                     <th>今日确诊</th>
                     <th>今日疑似</th>
-                    <th>今日死亡</th>
-                    <th>预测明日确诊</th>
-                    <th>预测明日疑似</th>
+                    <th>今日隔离</th>
                 </tr>
                 </thead>
                 <tbody id="tbody2">
@@ -62,9 +61,7 @@
                 <tr>
                     <th>昨日确诊</th>
                     <th>昨日疑似</th>
-                    <th>昨日死亡</th>
-                    <th>预测明日死亡</th>
-                    <th>预测明日治愈</th>
+                    <th>昨日隔离</th>
                 </tr>
                 </thead>
                 <tbody id="tbody3">
@@ -90,7 +87,7 @@
     </div>
 
     <div class="row">
-        <a href="../../global_epidemic.jsp">全球疫情数据</a>
+        <a href="../../login.jsp">登录</a>
     </div>
 </div>
 
@@ -127,9 +124,9 @@
                 tr.append(td);
 
 
-                /*td = $("<td>");
+                td = $("<td>");
                 td.html("" + epidemic.isolatedTotal);
-                tr.append(td);*/
+                tr.append(td);
 
                 td = $("<td>");
                 td.html("" + epidemic.total_heal);
@@ -148,47 +145,7 @@
             document.getElementById("acc_cured").innerHTML=acc_cured;
             document.getElementById("acc_dead").innerHTML=acc_dead;
         };
-
-
         //定义个用来查询今日疫情数据的函数
-        var findTodayDate = function (epidemics) {
-            var now_affirmed=0;
-            var now_suspected=0;
-            var now_dead=0;
-            /***********************************/
-            var predict_confirm=0;
-            var predict_suspect=0;
-            /***********************************/
-            var tbody1 = $("#tbody2");
-            tbody1.empty();
-            now_affirmed+=epidemics.today_confirm;
-            now_suspected+=epidemics.today_suspect;
-            now_dead+=epidemics.today_dead;
-            var tr = $("<tr>");
-            var td = $("<td>");
-            td.html(now_affirmed);
-            tr.append(td);
-
-            td = $("<td>");
-            td.html(now_suspected);
-            tr.append(td);
-
-            td = $("<td>");
-            td.html(now_dead);
-            tr.append(td);
-
-            tbody1.append(tr);
-
-            document.getElementById("now_affirmed").innerHTML=now_affirmed;
-            document.getElementById("now_suspected").innerHTML=now_suspected;
-            document.getElementById("now_dead").innerHTML=now_dead;
-        };
-
-
-
-
-
-        /*//定义个用来查询今日疫情数据的函数
         var findTodayDate = function (epidemics) {
             var now_affirmed=0;
             var now_suspected=0;
@@ -196,8 +153,8 @@
             var tbody1 = $("#tbody2");
             tbody1.empty();
             $.each(epidemics, function (index, epidemic) {
-                now_affirmed+=epidemic.today_confirm;
-                now_suspected+=epidemic.today_suspect;
+                now_affirmed+=epidemic.affirmed;
+                now_suspected+=epidemic.suspected;
                 now_isolated+=epidemic.isolated;
             });
             var tr = $("<tr>");
@@ -218,17 +175,19 @@
             document.getElementById("now_affirmed").innerHTML=now_affirmed;
             document.getElementById("now_suspected").innerHTML=now_suspected;
             document.getElementById("now_isolated").innerHTML=now_isolated;
-        };*/
-        //定义个用来查询前日疫情数据的函数
+        };
+        //定义个用来查询昨日疫情数据的函数
         var findYesterdayDate = function (epidemics) {
             var lastday_affirmed=0;
             var lastday_suspected=0;
-            var lastday_dead=0;
+            var lastday_isolated=0;
             var tbody1 = $("#tbody3");
             tbody1.empty();
-            lastday_affirmed+=epidemics.today_confirm;
-            lastday_suspected+=epidemics.today_suspect;
-            lastday_dead+=epidemics.today_dead;
+            $.each(epidemics, function (index, epidemic) {
+                lastday_affirmed+=epidemic.affirmed;
+                lastday_suspected+=epidemic.suspected;
+                lastday_isolated+=epidemic.isolated;
+            });
             var tr = $("<tr>");
             var td = $("<td>");
             td.html(lastday_affirmed);
@@ -239,29 +198,34 @@
             tr.append(td);
 
             td = $("<td>");
-            td.html(lastday_dead);
+            td.html(lastday_isolated);
             tr.append(td);
 
             tbody1.append(tr);
 
             //填充顶部表格
+            var now_affirmed=parseInt(document.getElementById("now_affirmed").innerHTML);
+            lastday_affirmed=now_affirmed-lastday_affirmed;
             if(lastday_affirmed>0){
                 document.getElementById("lastday_affirmed").innerHTML="+"+lastday_affirmed;
             }else{
                 document.getElementById("lastday_affirmed").innerHTML="+"+0;
             }
 
-
+            var now_suspected=parseInt(document.getElementById("now_suspected").innerHTML);
+            lastday_suspected=now_suspected-lastday_suspected;
             if(lastday_suspected>0){
                 document.getElementById("lastday_suspected").innerHTML="+"+lastday_suspected;
             }else{
                 document.getElementById("lastday_suspected").innerHTML="+"+0;
             }
 
-            if(lastday_dead>0){
-                document.getElementById("lastday_dead").innerHTML="+"+lastday_dead;
+            var now_isolated=parseInt(document.getElementById("now_isolated").innerHTML);
+            lastday_isolated=now_isolated-lastday_isolated;
+            if(lastday_isolated>0){
+                document.getElementById("lastday_isolated").innerHTML="+"+lastday_isolated;
             }else{
-                document.getElementById("lastday_dead").innerHTML="+"+0;
+                document.getElementById("lastday_isolated").innerHTML="+"+0;
             }
         };
         //初始化图表
@@ -435,8 +399,8 @@
             }
         }, "json");
 
-        //发送请求获取前日疫情数据
-        $.get("${pageContext.request.contextPath}/chinaDaily/before", {}, function (resp) {
+        //发送请求获取昨日疫情数据
+        $.get("${pageContext.request.contextPath}/epidemicData/ajax/yesterdayData", {}, function (resp) {
             if (resp.code < 0) {
                 alert(resp.msg);
             } else {
@@ -444,8 +408,8 @@
             }
         }, "json");
 
-        //发送请求获取昨日疫情数据
-        $.get("${pageContext.request.contextPath}/chinaDaily/yesterday", {}, function (resp) {
+        //发送请求获取今日疫情数据
+        $.get("${pageContext.request.contextPath}/epidemicData/ajax/todayData", {}, function (resp) {
             if (resp.code < 0) {
                 alert(resp.msg);
             } else {

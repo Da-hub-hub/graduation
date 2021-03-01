@@ -19,14 +19,17 @@ import java.util.List;
 public class ChinaDailyController {
     @Autowired
     private ChinaDailyService chinaDailyService;
-    //获取中国今日疫情数据
-    @RequestMapping("/today")
+    //获取中国前日疫情数据
+    @RequestMapping("/before")
     public Result findYesterday(){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String format = dateFormat.format(new Date());
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE,-2);
+        Date d = cal.getTime();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String format = simpleDateFormat.format(d);
         Date date=null;
         try {
-             date = dateFormat.parse(format);
+            date = simpleDateFormat.parse(format);
         } catch (ParseException e) {
             e.printStackTrace();
         }

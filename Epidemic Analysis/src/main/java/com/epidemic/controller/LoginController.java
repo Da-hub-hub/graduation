@@ -35,7 +35,7 @@ public class LoginController {
             //登录成功
             //将当前用户的信息保存到session中
             session.setAttribute("loginUser",u);
-            return "redirect:/data_input.jsp";
+            return "redirect:/epidemic.jsp";
         }
         return "/login.jsp";
 
@@ -51,7 +51,7 @@ public class LoginController {
     public String logout(HttpSession session){
         //清理session
         session.invalidate();
-        return "redirect:/epidemic.jsp";
+        return "redirect:/login.jsp";
     }
 
 

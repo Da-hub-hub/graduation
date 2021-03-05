@@ -46,11 +46,11 @@ public class Predicted implements Serializable {
         * */
         int confirm = Predict.getPredict(a1, Sn, n, todayConfirm);
         int suspect = Predict.getPredict(a1, Sn, n, todaySuspect);
-        int input = Predict.getPredict(a1, Sn, n, todayHeal);
-        int heal = Predict.getPredict(a1, Sn, n, todayDead);
-        int dead = Predict.getPredict(a1, Sn, n, todaySevere);
-        int severe = Predict.getPredict(a1, Sn, n, todayStoreConfirm);
-        int storeConfirm = Predict.getPredict(a1, Sn, n, todayInput);
+        int heal = Predict.getPredict(a1, Sn, n, todayHeal);
+        int dead = Predict.getPredict(a1, Sn, n, todayDead);
+        int severe = Predict.getPredict(a1, Sn, n, todaySevere);
+        int storeConfirm = Predict.getPredict(a1, Sn, n, todayStoreConfirm);
+        int input = Predict.getPredict(a1, Sn, n, todayInput);
 
         Date date=todayDate[n-1];
         china_daily.setDate(DateUtil.dateCreateOne(date));

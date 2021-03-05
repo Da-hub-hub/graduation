@@ -24,4 +24,9 @@ public class ChinaDailyPredictedService {
         List<China_daily> china_dailies = chinaDailyPredictedMapper.chinaDailyPredicted();
         return china_dailies;
     }
+
+    public China_daily chinaDailyPredictedOut(double a1,int Sn,int n){
+        China_daily china_daily = Predicted.WeightedMovingAverage1(a1, Sn, n);
+        return china_daily;
+    }
 }

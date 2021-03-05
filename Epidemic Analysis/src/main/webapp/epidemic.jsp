@@ -49,25 +49,37 @@
 
                 <thead>
                 <tr>
-                    <th>今日确诊</th>
-                    <th>今日疑似</th>
-                    <th>今日死亡</th>
-                    <th>预测明日确诊</th>
-                    <th>预测明日疑似</th>
+                    <th>前日确诊</th>
+                    <th>前日疑似</th>
+                    <th>前日死亡</th>
+                    <th>前日死亡</th>
+                    <th>前日输入</th>
+                </tr>
+                </thead>
+                <tbody id="tbody3">
+
+                <thead>
+                <tr>
+                    <th>昨日确诊</th>
+                    <th>昨日疑似</th>
+                    <th>昨日治愈</th>
+                    <th>昨日死亡</th>
+                    <th>昨日输入</th>
                 </tr>
                 </thead>
                 <tbody id="tbody2">
 
                 <thead>
                 <tr>
-                    <th>昨日确诊</th>
-                    <th>昨日疑似</th>
-                    <th>昨日死亡</th>
-                    <th>预测明日死亡</th>
-                    <th>预测明日治愈</th>
+                    <th>预测今日确诊</th>
+                    <th>预测今日疑似</th>
+                    <th>预测今日治愈</th>
+                    <th>预测今日死亡</th>
+                    <th>预测今日输入</th>
                 </tr>
                 </thead>
-                <tbody id="tbody3">
+                <tbody id="tbody4">
+
 
                 </tbody>
             </table>
@@ -155,15 +167,15 @@
             var now_affirmed=0;
             var now_suspected=0;
             var now_dead=0;
-            /***********************************/
-            var predict_confirm=0;
-            var predict_suspect=0;
-            /***********************************/
+            var now_heal=0;
+            var now_input=0;
             var tbody1 = $("#tbody2");
             tbody1.empty();
             now_affirmed+=epidemics.today_confirm;
             now_suspected+=epidemics.today_suspect;
             now_dead+=epidemics.today_dead;
+            now_heal+=epidemics.today_heal;
+            now_input+=epidemics.today_input;
             var tr = $("<tr>");
             var td = $("<td>");
             td.html(now_affirmed);
@@ -177,58 +189,66 @@
             td.html(now_dead);
             tr.append(td);
 
+            td = $("<td>");
+            td.html(now_heal);
+            tr.append(td);
+
+            td = $("<td>");
+            td.html(now_input);
+            tr.append(td);
+
             tbody1.append(tr);
 
-            document.getElementById("now_affirmed").innerHTML=now_affirmed;
-            document.getElementById("now_suspected").innerHTML=now_suspected;
-            document.getElementById("now_dead").innerHTML=now_dead;
+            //填充顶部表格
+            if(now_affirmed>0){
+                document.getElementById("now_affirmed").innerHTML="+"+now_affirmed;
+            }else{
+                document.getElementById("now_affirmed").innerHTML="+"+0;
+            }
+
+
+            if(now_suspected>0){
+                document.getElementById("now_suspected").innerHTML="+"+now_suspected;
+            }else{
+                document.getElementById("now_suspected").innerHTML="+"+0;
+            }
+
+            if(now_dead>0){
+                document.getElementById("now_dead").innerHTML="+"+now_dead;
+            }else{
+                document.getElementById("now_dead").innerHTML="+"+0;
+            }
+
+            if(now_heal>0){
+                document.getElementById("now_heal").innerHTML="+"+now_heal;
+            }else{
+                document.getElementById("now_heal").innerHTML="+"+0;
+            }
+
+            if(now_input>0){
+                document.getElementById("now_input").innerHTML="+"+now_input;
+            }else{
+                document.getElementById("now_input").innerHTML="+"+0;
+            }
         };
 
 
 
 
-
-        /*//定义个用来查询今日疫情数据的函数
-        var findTodayDate = function (epidemics) {
-            var now_affirmed=0;
-            var now_suspected=0;
-            var now_isolated=0;
-            var tbody1 = $("#tbody2");
-            tbody1.empty();
-            $.each(epidemics, function (index, epidemic) {
-                now_affirmed+=epidemic.today_confirm;
-                now_suspected+=epidemic.today_suspect;
-                now_isolated+=epidemic.isolated;
-            });
-            var tr = $("<tr>");
-            var td = $("<td>");
-            td.html(now_affirmed);
-            tr.append(td);
-
-            td = $("<td>");
-            td.html(now_suspected);
-            tr.append(td);
-
-            td = $("<td>");
-            td.html(now_isolated);
-            tr.append(td);
-
-            tbody1.append(tr);
-
-            document.getElementById("now_affirmed").innerHTML=now_affirmed;
-            document.getElementById("now_suspected").innerHTML=now_suspected;
-            document.getElementById("now_isolated").innerHTML=now_isolated;
-        };*/
         //定义个用来查询前日疫情数据的函数
         var findYesterdayDate = function (epidemics) {
             var lastday_affirmed=0;
             var lastday_suspected=0;
             var lastday_dead=0;
+            var lastday_heal=0;
+            var lastday_input=0;
             var tbody1 = $("#tbody3");
             tbody1.empty();
             lastday_affirmed+=epidemics.today_confirm;
             lastday_suspected+=epidemics.today_suspect;
             lastday_dead+=epidemics.today_dead;
+            lastday_heal=epidemics.today_heal;
+            lastday_input=epidemics.today_input;
             var tr = $("<tr>");
             var td = $("<td>");
             td.html(lastday_affirmed);
@@ -240,6 +260,14 @@
 
             td = $("<td>");
             td.html(lastday_dead);
+            tr.append(td);
+
+            td = $("<td>");
+            td.html(lastday_heal);
+            tr.append(td);
+
+            td = $("<td>");
+            td.html(lastday_input);
             tr.append(td);
 
             tbody1.append(tr);
@@ -262,6 +290,90 @@
                 document.getElementById("lastday_dead").innerHTML="+"+lastday_dead;
             }else{
                 document.getElementById("lastday_dead").innerHTML="+"+0;
+            }
+
+            if(lastday_heal>0){
+                document.getElementById("lastday_heal").innerHTML="+"+lastday_heal;
+            }else{
+                document.getElementById("lastday_heal").innerHTML="+"+0;
+            }
+
+            if(lastday_input>0){
+                document.getElementById("lastday_input").innerHTML="+"+lastday_input;
+            }else{
+                document.getElementById("lastday_input").innerHTML="+"+0;
+            }
+        };
+
+
+
+        //定义个用来查询今日疫情预测数据的函数
+        var findTodayPredicted = function (epidemics) {
+            var predictd_affirmed=0;
+            var predictd_suspected=0;
+            var predictd_dead=0;
+            var predicted_heal=0;
+            var predicted_input=0;
+            var tbody1 = $("#tbody4");
+            tbody1.empty();
+            predictd_affirmed+=epidemics.today_confirm;
+            predictd_suspected+=epidemics.today_suspect;
+            predictd_dead+=epidemics.today_dead;
+            predicted_heal+=epidemics.today_heal;
+            predicted_input+=epidemics.today_input;
+            var tr = $("<tr>");
+            var td = $("<td>");
+            td.html(predictd_affirmed);
+            tr.append(td);
+
+            td = $("<td>");
+            td.html(predictd_suspected);
+            tr.append(td);
+
+            td = $("<td>");
+            td.html(predictd_dead);
+            tr.append(td);
+
+            td = $("<td>");
+            td.html(predicted_heal);
+            tr.append(td);
+
+            td = $("<td>");
+            td.html(predicted_input);
+            tr.append(td);
+
+            tbody1.append(tr);
+
+            //填充顶部表格
+            if(predictd_affirmed>0){
+                document.getElementById("predictd_affirmed").innerHTML="+"+predictd_affirmed;
+            }else{
+                document.getElementById("predictd_affirmed").innerHTML="+"+0;
+            }
+
+
+            if(predictd_suspected>0){
+                document.getElementById("predictd_suspected").innerHTML="+"+predictd_suspected;
+            }else{
+                document.getElementById("predictd_suspected").innerHTML="+"+0;
+            }
+
+            if(predictd_dead>0){
+                document.getElementById("predictd_dead").innerHTML="+"+predictd_dead;
+            }else{
+                document.getElementById("predictd_dead").innerHTML="+"+0;
+            }
+
+            if(predicted_heal>0){
+                document.getElementById("predicted_heal").innerHTML="+"+predicted_heal;
+            }else{
+                document.getElementById("predicted_heal").innerHTML="+"+0;
+            }
+
+            if(predicted_input>0){
+                document.getElementById("predicted_input").innerHTML="+"+predicted_input;
+            }else{
+                document.getElementById("predicted_input").innerHTML="+"+0;
             }
         };
         //初始化图表
@@ -450,6 +562,15 @@
                 alert(resp.msg);
             } else {
                 findTodayDate(resp.data);
+            }
+        }, "json");
+
+        //发送请求获取今日中国疫情预测数据
+        $.post("${pageContext.request.contextPath}/predicted/chinaDailyPredictedOut?a1=0.2&Sn=2&n=7", {}, function (resp) {
+            if (resp.code < 0) {
+                alert(resp.msg);
+            } else {
+                findTodayPredicted(resp.data);
             }
         }, "json");
 

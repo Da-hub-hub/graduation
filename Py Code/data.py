@@ -25,6 +25,26 @@ class Data:
         result = requests.get(url, headers=headers)
         return result
 
+
+    def get_qichaunyang_request2(self):
+        url = 'https://lab.isaaclin.cn/nCoV/api/area?latest=1'
+
+        headers = {
+            'accept': '*/*',
+            'accept-encoding': 'gzip,deflate,br',
+            'accept-language': 'en-US,en;q=0.9,zh-CN;q = 0.8,zh;q = 0.7',
+            'origin': 'https://wp.m.163.com',
+            'referer': 'https://wp.m.163.com/',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-ite',
+            'user-agent': 'Mozilla/5.0(WindowsNT10.0;Win64;x64) AppleWebKit/37.36 (KHTML, likeGecko) Chrome/82.0.4056.0 Safari/537.36 Edg/82.0.432.3'
+        }
+        result = requests.get(url, headers=headers)
+        return result
+
+
+
 #清除所有爬取数据所在的表（重新爬取，插入最新的数据）
     def do_clean_table(self):
         test=Data.__dbUtils.__enter__() #获取操作数据库的游标
@@ -33,14 +53,37 @@ class Data:
         sql3='delete from china_total_data'
         sql4='delete from global_today_data'
         sql5='delete from global_total_data'
+        sql6='delete from global_data'
         test.execute(sql1)
         test.execute(sql2)
         test.execute(sql3)
         test.execute(sql4)
         test.execute(sql5)
+        test.execute(sql6)
         test.connection.commit()
         Data.__dbUtils.close_conn()
         print("疫情数据表已清空！")
+
+    # 解析全球数据并插入数据库
+    def get_global_data(self):
+        test = Data.__dbUtils.__enter__()  # 获取游标
+        result = Data().get_qichaunyang_request2()
+        json_str = json.loads(result.text)['results']  # 转换为字典，并获取data的字典
+        id=0
+        for dict in json_str:
+            sql='insert into global_data(id,countryName,provinceName,countryEnglishName,confirmedCount,currentConfirmedCount,curedCount,deadCount) values (%s,%s,%s,%s,%s,%s,%s,%s);'
+            countryName=dict['countryName']
+            provinceName=dict['provinceName']
+            countryEnglishName=dict['countryEnglishName']
+            confirmedCount=dict['confirmedCount']
+            currentConfirmedCount=dict['currentConfirmedCount']
+            curedCount=dict['curedCount']
+            deadCount=dict['deadCount']
+            id=id+1;
+            test.execute(sql,[id,countryName,provinceName,countryEnglishName,confirmedCount,currentConfirmedCount,curedCount,deadCount])
+            test.connection.commit()
+        Data.__dbUtils.close_conn()
+        print("全球疫情数据插入成功！")
 
 #解析各省疫情数据，并执行插入数据库的操作
     def get_provence_data(self):

@@ -9,3 +9,4 @@ if __name__=='__main__':
     data().get_china_total_data()
     data().get_global_today_data()
     data().get_global_total_data()
+    data().get_global_data()

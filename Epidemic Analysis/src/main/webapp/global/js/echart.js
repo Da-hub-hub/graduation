@@ -232,7 +232,7 @@ $(function () {
                         fontSize: 28
                     },
                     left: 'left', // 左右居中
-                    subtext: '选取了累计确诊超过1000人的国家 数据来源：丁香园',
+                    subtext: '选取了累计确诊超过1000人的国家',
                     subtextStyle: {
                         fontSize: 14,
                         color:'white'

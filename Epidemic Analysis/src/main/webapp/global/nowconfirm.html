@@ -4,11 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>大数据实时监控可视化后台管理系统网页模板</title>
-    <meta name="keywords" content="大数据,实时监控,可视化,后台管理系统,网页模板" />
-    <meta name="description" content="大数据实时监控可视化后台管理系统网页模板下载。实用的北斗车联网大数据服务平台后台管理界面模板，大数据图表管理系统模板。数据概览、数据监控、添加和注销等3个后台页面html下载。" /> 
-    <meta name="author" content="js代码(www.jsdaima.com)" />
-    <meta name="copyright" content="js代码(www.jsdaima.com)" />
+    <title>大数据实时监控可视化后台管理系统</title>
+    <meta name="keywords" content="大数据,实时监控,可视化" />
+    <meta name="description" content="大数据实时监控可视化后台管理系统" />
     <link href="css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/data_text.css">
@@ -42,6 +40,9 @@
             </li>
             <li>
                 <a href="../../epidemic.jsp">中国疫情数据</a>
+            </li>
+            <li>
+                <a href="http://localhost:8080/user/logout">退出</a>
             </li>
         </ul>
     </div>
@@ -79,29 +80,6 @@
 <!--content结束-->
 
 
-<!--注销模态框  开始-->
-<!-- <div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">注销</h4>
-            </div>
-            <div class="modal-body">
-                <p>确认退出该系统吗？</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">确认</button>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!--注销模态框  结束-->
-
-
-
-
 </body>
 <script src="js/jquery-2.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -111,31 +89,5 @@
 <script src="js/world.js"></script>
 <script src="js/foundation-datepicker.js"></script>
 <script src="js/foundation-datepicker.zh-CN.js"></script>
-<!-- <script type="text/javascript" src="english_data.json"></script> -->
-<!-- <script>
-    $('#demo-1').fdatepicker();
 
-    var nowTemp = new Date();
-    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-    var checkin = $('#dpd1').fdatepicker({
-        onRender: function (date) {
-            return date.valueOf() < now.valueOf() ? 'disabled' : '';
-        }
-    }).on('changeDate', function (ev) {
-        if (ev.date.valueOf() > checkout.date.valueOf()) {
-            var newDate = new Date(ev.date)
-            newDate.setDate(newDate.getDate() + 1);
-            checkout.update(newDate);
-        }
-        checkin.hide();
-        $('#dpd2')[0].focus();
-    }).data('datepicker');
-    var checkout = $('#dpd2').fdatepicker({
-        onRender: function (date) {
-            return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
-        }
-    }).on('changeDate', function (ev) {
-        checkout.hide();
-    }).data('datepicker');
-</script> -->
 </html>

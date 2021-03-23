@@ -19,11 +19,11 @@
 <body style="background: url(&quot;data:image/png;base64,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&quot;);">
 <div class="login">
     <div class="login_title">
-        <span>管理员登录</span>
+        <span>新冠疫情数据可视化</span>
     </div>
-    <form action="${pageContext.request.contextPath}/user/login" method="post">
+    <form action="${pageContext.request.contextPath}/user/login1" method="get">
         <div class="login_fields">
-            <div class="login_fields__user">
+            <%--<div class="login_fields__user">
                 <div class="icon">
                     <img alt="" src="${pageContext.request.contextPath}/login_files/user_icon_copy.png">
                 </div>
@@ -40,10 +40,10 @@
                 <div class="validation">
                     <img alt="" src="${pageContext.request.contextPath}/login_files/tick.png">
                 </div>
-            </div>
+            </div>--%>
 
-            <div class="login_fields__submit">
-                <input type="submit" value="登录">
+            <div class="login_fields__submit" >
+                <input type="submit" value="进入">
             </div>
             <br> </br>
             <div align="center">${msg}</div>
@@ -52,7 +52,7 @@
     <div class="success">
     </div>
     <div class="disclaimer">
-        <p>欢迎登陆后台管理系统</p>
+        <p>专业：物联网工程 学号：17631040628</p>
     </div>
 </div>
 <div class="authent">

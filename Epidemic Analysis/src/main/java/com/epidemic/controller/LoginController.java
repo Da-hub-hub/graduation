@@ -5,6 +5,7 @@ import com.epidemic.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpSession;
 
@@ -14,13 +15,16 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
     @Autowired
     private UserService userService;
+    /*
+    * 无密码登录
+    * */
+    @GetMapping ("/login1")
+    public String login1(){
+        return "redirect:/epidemic.jsp";
+    }
 
     /**
      * 登录
-     * @param user：封装前台请求的数据，表单name中的值跟user中的属性一致
-     * @param model：将后台数据传递给前台
-     * @param session：传统的session
-     * @return
      */
     @RequestMapping("/login")
     public String login(UserInfo user, Model model, HttpSession session){
@@ -28,7 +32,7 @@ public class LoginController {
         UserInfo u = userService.findByAccount(user);
         if(u==null){
             //账号为空
-            model.addAttribute("msg","请输入用户名及密码！");
+            /*model.addAttribute("msg","请输入用户名及密码！");*/
             return "/login.jsp";
         }
         if(u.getPassword().equals(user.getPassword())){
@@ -44,8 +48,6 @@ public class LoginController {
 
     /**
      * 退出登录
-     * @param session
-     * @return
      */
     @RequestMapping("/logout")
     public String logout(HttpSession session){

@@ -101,9 +101,7 @@
         </div>
     </div>
 
-    <div class="row">
-        <a href="../../global_epidemic.jsp">全球疫情数据</a>
-    </div>
+
 </div>
 
 <script src="${pageContext.request.contextPath}/bootstrap/js/jquery-1.11.2.js"></script>
